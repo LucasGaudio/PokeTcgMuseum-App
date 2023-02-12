@@ -51,6 +51,12 @@ const styles = StyleSheet.create({
     },
     setName: {
         maxWidth: 140
+    },
+    modalBottomText: {
+        fontWeight: "700",
+        color: "#485fc7",
+        textDecorationLine: 'underline',
+        maxWidth: 110
     }
     
     

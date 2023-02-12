@@ -18,18 +18,15 @@ const setError = err => {
 };
 
 export const getArtist = (artist) => {
-	// const artistReplaced = artist.replace("%20", ".")
-	// console.log('artist', artist)
-	// console.log('artistReplaced', artistReplaced)
-
+	const artistReplaced = artist.split(" ").join(".");
 	return async dispatch => {
 		dispatch({
 			type: GET_ARTIST,
 			payload: null,
 		});
 		try {
-			pokemon.card
-				.all({ q: `artist:${artist}`, orderBy: "set.releaseDate" })
+				pokemon.card
+				.all({ q: `artist:${artistReplaced}`, orderBy: "set.releaseDate" })
 				.then(result => {
 					const resData = result;
 					console.log('resData', resData)

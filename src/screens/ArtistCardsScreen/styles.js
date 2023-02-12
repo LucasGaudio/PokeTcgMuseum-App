@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         width: "100%",
-        // height: 120
+        height: 120
     },
     setLogo: {
         width: 150,

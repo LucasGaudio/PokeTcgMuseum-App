@@ -10,6 +10,8 @@ const PokemonCard = ({cardData, cardImageLarge, cardSmall}) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [fadeAnim] = useState(new Animated.Value(0));
   const [isLoading, setIsLoading] = useState(false);
+  const [imageLargeLoading, setImageLargeLoading] = useState(false);
+
   const [filteredPokemonName, setFilteredPokemonName] = useState(cardData.name);
   const navigation = useNavigation()
   
@@ -39,10 +41,9 @@ const PokemonCard = ({cardData, cardImageLarge, cardSmall}) => {
 
   const CardaInfoData = ({topLine, bottomLine, onPress}) => (
     <View>
-      <Text style={styles.setName}>{topLine}</Text>
+      <Text style={styles.modalTopText}>{topLine}</Text>
       <TouchableOpacity onPress={onPress} >
-        <Text style={styles.setName}>{bottomLine}</Text>
-
+        <Text style={styles.modalBottomText}>{bottomLine}</Text>
       </TouchableOpacity>
     </View>
   )
@@ -82,18 +83,20 @@ const PokemonCard = ({cardData, cardImageLarge, cardSmall}) => {
         >
           <Animated.View style={[styles.modalContainer, { opacity: fadeAnim }]}>
           
+
             <Image
               source={{
                 uri: cardData.images.large
               }}
               style={styles.largeImage}
               // onLoadStart={() => setIsLoading(true)}
-              onLoad={() => setIsLoading(false)}
+              onLoad={() => setImageLargeLoading(false)}
+              // onLoadEnd={() => setIsLoading(false)}
               />
             <View style={styles.cardaInfoContainer}>
               <CardaInfoData topLine={"Other"} bottomLine={filteredPokemonName} onPress={() => navigation.navigate("AllCardsWithSameNamePage", {cardName: filteredPokemonName})} />
               <CardaInfoData topLine={"Set name"} bottomLine={cardData.set.name} onPress={() => navigation.navigate("SetCardsPage", {setData: cardData.set})} />
-              <CardaInfoData topLine={"artist"} bottomLine={cardData.artist} onPress={() => navigation.navigate("AllCardsWithSameNamePage", {cardName: filteredPokemonName})} />
+              <CardaInfoData topLine={"artist"} bottomLine={cardData.artist} onPress={() => navigation.navigate("ArtistCardsScreen", {artistName: cardData.artist})} />
 
             </View>
           </Animated.View>

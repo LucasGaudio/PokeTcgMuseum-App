@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { SafeAreaView, ScrollView, Text, FlatList, View, ActivityIndicator, Image } from 'react-native';
+import { SafeAreaView, ScrollView, Animated, FlatList, View, ActivityIndicator, Image } from 'react-native';
 import pokemon from "pokemontcgsdk";
 import styles from './styles';
 import { useDispatch, useSelector } from "react-redux";
@@ -14,10 +14,17 @@ const SetCardsPage = (props) => {
 	const dispatch = useDispatch();
 	const { data, error } = useSelector(state => state.pokedex);
 
+  // console.log('testando', data && data[0])
+
     const [pokemonSets, setPokemonSets] = useState(null);
     const [loading, setLoading] = useState(false);
     const [backgroundColor, setBackgroundColor] = useState("#fff");
     const [colors, setColors] = useState("#fff")
+
+    const [scrollY] = useState(new Animated.Value(0));
+
+    const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
+
 
     useEffect(() => {
       dispatch(getSet(setData.id))
@@ -76,25 +83,42 @@ const SetCardsPage = (props) => {
 
     // console.log('colors', colors)
 
-    const uniqueSupertypes = data && data.map(item => item.supertype)
-    .filter((supertype, index, self) => self.indexOf(supertype) === index);
+    // const uniqueSubtypes = data && data.map(item => item.subtypes)
+    // .filter((subtypes, index, self) => self.indexOf(subtypes) === index);
   
-    // console.log('uniqueSupertypes', uniqueSupertypes)
+    // console.log('uniqueSubtypes', uniqueSubtypes)
+
+    const uniqueSubtypes = data && [].concat(...data.map(item => item.subtypes))
+  .filter((subtype, index, self) => self.indexOf(subtype) === index);
+
+console.log(uniqueSubtypes);
+
+const handleScroll = Animated.event(
+  [{ nativeEvent: { contentOffset: { y: scrollY } } }],
+  { useNativeDriver: true }
+);
   
 	return data ? (
         <View style={styles.imageContainer}>
-            <View style={{...styles.setDataContainer, backgroundColor: colors}}>
-                <Image
-                    source={{
-                        uri: setData?.images?.logo
-                    }}
-                    style={styles.setLogo}
-                />
-            </View>
-            <FlatList
+      <Animated.View style={{ ...styles.setDataContainer, backgroundColor: colors, transform: [{
+        scaleY: scrollY.interpolate({
+          inputRange: [0, 200],
+          outputRange: [1, 0.5],
+          extrapolate: 'clamp'
+        })
+      }] }}>
+        <Image
+          source={{
+            uri: setData?.images?.logo
+          }}
+          style={styles.setLogo}
+        />
+      </Animated.View>
+            <AnimatedFlatList
                 numColumns={3}
                 showsVerticalScrollIndicator={false}
                 data={data}
+                onScroll={handleScroll}
                 renderItem={({item}) =>
                     <PokemonCard
                         cardData={item}
