@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, StyleSheet, FlatList, TouchableOpacity, Animated } from 'react-native';
+import {useNavigation} from "@react-navigation/native"
+import Icon from 'react-native-vector-icons/AntDesign';
+import styles from './styles';
 
 import allPokemonNameData from "../../assets/json/allPokemonNames.json";
 import allTrainers from "../../assets/json/allTrainers.json";
@@ -11,6 +14,8 @@ const SearchCardScreen = () => {
     const [searchText, setSearchText] = useState('');
     const [suggestions, setSuggestions] = useState([]);
     const [selectedOption, setSelectedOption] = useState('Pokemon');
+
+    const navigation = useNavigation()
 
     const handleSearchTextChange = (text) => {
         let selectedOptionJson;
@@ -43,8 +48,10 @@ const SearchCardScreen = () => {
 
   
     const handleSuggestionPress = (item) => {
-      setSearchText(item.name);
+      setSearchText("");
       setSuggestions([]);
+      navigation.navigate("AllCardsWithSameNamePage", {cardName: item.name})
+
     };
 
     const OptionTab = ({ option }) => (
@@ -58,10 +65,6 @@ const SearchCardScreen = () => {
           </Text>
         </TouchableOpacity>
     );
-
-    const handleSubmit = (event) => {
-        console.log(searchText);
-      };
   
     return (
       <View style={styles.container}>
@@ -74,79 +77,40 @@ const SearchCardScreen = () => {
         <TextInput
           style={styles.input}
           placeholder={`Search ${selectedOption === "Energy" ? "an" : "a" } ${selectedOption}`}
+          placeholderTextColor="#000" 
           onChangeText={handleSearchTextChange}
           value={searchText}
-          handleSubmit={handleSubmit()}
+          onKeyPress={ (event) => {
+            if(event.nativeEvent.key == "Enter"){
+                alert(event.nativeEvent.key) //called when multiline is true
+                // this.signIn();
+            }}}
           
         />
+
         {suggestions.length > 0 && (
+            <View style={{ width: '90%' }}>
           <FlatList
             data={suggestions}
             keyExtractor={(item) => item.name}
             renderItem={({ item }) => (
               <TouchableOpacity onPress={() => handleSuggestionPress(item)}>
                 <View style={styles.suggestionContainer}>
+                  <Icon
+                    name="search1"
+                    size={16}
+                    // color={"rgba(255, 255, 255, 0.9)"}
+                    style={{ marginRight: 10, marginTop: 5 }}
+                  />
                   <Text style={styles.suggestionText}>{item.name}</Text>
                 </View>
               </TouchableOpacity>
             )}
           />
+          </View>
         )}
       </View>
     );
   };
-  
-  const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      alignItems: 'center',
-    //   backgroundColor: "#000"
-    //   justifyContent: 'center',
-    },
-    input: {
-      height: 40,
-      width: '90%',
-      borderColor: 'gray',
-      borderWidth: 1,
-      padding: 10,
-      marginTop: 20,
-    },
-    suggestionContainer: {
-      backgroundColor: 'lightgray',
-      padding: 10,
-      width: '100%',
-      marginTop: 10,
-    },
-    suggestionText: {
-      fontSize: 18,
-    },
-    selectedTab: {
-        backgroundColor: 'black',
-    },
-    OptionTabContainer: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        paddingHorizontal: 10,
-    },
-    tab: {
-        height: 40,
-        width: 80,
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderBottomWidth: 2,
-        borderBottomColor: 'rgba(255, 255, 255, 0.0)',
-      },
-      selectedTab: {
-        borderBottomColor: 'black',
-      },
-      tabText: {
-        color: 'rgba(0, 0, 0, 0.5)',
-      },
-      selectedTabText: {
-        color: 'black',
-        fontWeight: 'bold',
-      },
-  });
   
   export default SearchCardScreen;

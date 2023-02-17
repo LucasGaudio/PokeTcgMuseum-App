@@ -25,7 +25,7 @@ const IndividualSetBox = ({setData}) => {
             />       
         <View style={{ flex: 1, marginLeft: 35 }}>
           <Text style={styles.setName}>{setData.name}</Text>
-          <Text>{formatDate(setData.releaseDate)}</Text>
+          <Text style={styles.setDate}>{formatDate(setData.releaseDate)}</Text>
         </View>
         <View>
             <Image

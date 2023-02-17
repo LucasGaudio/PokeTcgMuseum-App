@@ -33,8 +33,12 @@ const styles = StyleSheet.create({
     setName: {
         maxWidth: 150,
         fontWeight: "700",
-        fontSize: 16
+        fontSize: 16,
+        color: Colors.black,
     },
+    setDate: {
+        color: Colors.black,
+    }
 })
 
 export default styles;

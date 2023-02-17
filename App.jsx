@@ -1,11 +1,15 @@
 
 import React from 'react';
 import {
-  View,
+  View, Text
 } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs"
 import {NavigationContainer} from '@react-navigation/native';
+import Icon from 'react-native-vector-icons/AntDesign';
+import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+
+
 
 import HomePage from "./src/screens/HomePage"
 import SetCardsPage from "./src/screens/SetCardsPage"
@@ -79,17 +83,45 @@ const App = () => {
     <NavigationContainer>
       <Tab.Navigator>
           <Tab.Screen 
-            name={"Sets"}
+            name={"Set"}
             component={HomeStack}
             options={{ 
-              headerShown:false ,
+              headerShown:false,
+              tabBarIcon: ({ focused }) => (
+                <MaterialIcon
+                name="cards"
+                size={20}
+                color={focused ? "#007aff" : "#000"}
+                style={{marginTop: 5}}
+
+                />
+                
+              ),
+              tabBarLabel: ({ focused }) => (
+                <Text style={{ fontSize: 16, color: focused ? "#007aff" : "#000", marginBottom: 5}}>
+                  Cards
+                </Text>
+              ),
             }}
           />
           <Tab.Screen 
             name={"Search card"}
             component={SearchStack}
             options={{ 
-              headerShown:false ,
+              headerShown:false,
+              tabBarIcon: ({ focused }) => (
+                <Icon
+                name="search1"
+                size={20}
+                color={focused ? "#007aff" : "#000"}
+                style={{marginTop: 5}}
+                />
+              ),
+              tabBarLabel: ({ focused }) => (
+                <Text style={{ fontSize: 16, color: focused ? "#007aff" : "#000", marginBottom: 5}}>
+                  Search card
+                </Text>
+              ),
             }}
           />
       </Tab.Navigator>

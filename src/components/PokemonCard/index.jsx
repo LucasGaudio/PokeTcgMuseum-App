@@ -10,6 +10,7 @@ const PokemonCard = ({cardData, cardImageLarge, cardSmall}) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [fadeAnim] = useState(new Animated.Value(0));
   const [isLoading, setIsLoading] = useState(false);
+
   const [imageLargeLoading, setImageLargeLoading] = useState(false);
 
   const [filteredPokemonName, setFilteredPokemonName] = useState(cardData.name);
@@ -81,9 +82,8 @@ const PokemonCard = ({cardData, cardImageLarge, cardSmall}) => {
             }
           }}
         >
-          <Animated.View style={[styles.modalContainer, { opacity: fadeAnim }]}>
           
-
+          <Animated.View style={[styles.modalContainer, { opacity: fadeAnim }]}>
             <Image
               source={{
                 uri: cardData.images.large
@@ -100,6 +100,7 @@ const PokemonCard = ({cardData, cardImageLarge, cardSmall}) => {
 
             </View>
           </Animated.View>
+          
         </PanGestureHandler>
 
       )}

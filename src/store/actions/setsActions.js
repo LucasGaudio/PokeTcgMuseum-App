@@ -42,13 +42,14 @@ export const getArtist = (artist) => {
 };
 
 export const getAllCardsWithSameName = (cardName, handleNavigation = () => {}) => {
+	const cardNameReplaced = cardName.split(" ").join(".");
 	return async dispatch => {
 		dispatch({
 			type: GET_ALL_CARDS_WITH_SAME_NAME,
 			payload: null,
 		});
 		try {
-			pokemon.card.all({ q: `name:${cardName}`, orderBy: "set.releaseDate" }).then(result => {
+			pokemon.card.all({ q: `name:${cardNameReplaced}`, orderBy: "set.releaseDate" }).then(result => {
 				handleNavigation();
 
 				const resData = result;

@@ -9,7 +9,9 @@ const styles = StyleSheet.create({
     container: {
         // flex: 1
         // margin: 5,
-        margin: 6
+        // margin: 4
+        marginHorizontal: 4,
+        marginVertical: 2
     },
     cardView: {
 		boxShadow: "rgba(0, 0, 0, 0.5)",
@@ -57,6 +59,10 @@ const styles = StyleSheet.create({
         color: "#485fc7",
         textDecorationLine: 'underline',
         maxWidth: 110
+    },
+    modalTopText: {
+        color: Colors.black,
+
     }
     
     

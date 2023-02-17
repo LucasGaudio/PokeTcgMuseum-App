@@ -5,7 +5,6 @@ import styles from './styles';
 import { useDispatch, useSelector } from "react-redux";
 import { getSet } from "../../store/actions/setsActions";
 import PokemonCard from "../../components/PokemonCard"
-import ImageColors from "react-native-image-colors";
 pokemon.configure({ apiKey: process.env.REACT_APP_POKEMONTCG_KEY });
 
 const SetCardsPage = (props) => {
@@ -36,50 +35,7 @@ const SetCardsPage = (props) => {
 
     const yunaUrl = setData?.images?.logo
 
-    useEffect(() => {
-        if (data) {
-            const fetchColors = async () => {
-                const result = await ImageColors.getColors(yunaUrl, {
-                  fallback: '#000000',
-                  quality: 'low',
-                  pixelSpacing: 5,
-                  cache: true,
-                  headers: {
-                    authorization: 'Basic 123',
-                  },
-                })
-          
-                switch (result.platform) {
-                  case 'android':
-                  case 'web':
-                    setColors({
-                      colorOne: { value: result.lightVibrant, name: 'lightVibrant' },
-                      colorTwo: { value: result.dominant, name: 'dominant' },
-                      colorThree: { value: result.vibrant, name: 'vibrant' },
-                      colorFour: { value: result.darkVibrant, name: 'darkVibrant' },
-                      rawResult: JSON.stringify(result),
-                    })
-                    break
-                  case 'ios':
-                    setColors({
-                      colorOne: { value: result.background, name: 'background' },
-                      colorTwo: { value: result.detail, name: 'detail' },
-                      colorThree: { value: result.primary, name: 'primary' },
-                      colorFour: { value: result.secondary, name: 'secondary' },
-                      rawResult: JSON.stringify(result),
-                    })
-                    break
-                  default:
-                    throw new Error('Unexpected platform')
-                }
-          
-                setLoading(false)
-              }
-          
-              fetchColors()
-        }
-      
-      }, [data])
+
 
     // console.log('colors', colors)
 

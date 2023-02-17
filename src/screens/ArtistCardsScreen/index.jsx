@@ -5,7 +5,6 @@ import styles from './styles';
 import { useDispatch, useSelector } from "react-redux";
 import { getArtist } from "../../store/actions/setsActions";
 import PokemonCard from "../../components/PokemonCard"
-import ImageColors from "react-native-image-colors";
 pokemon.configure({ apiKey: process.env.REACT_APP_POKEMONTCG_KEY });
 
 const ArtistCardsScreen = (props) => {
