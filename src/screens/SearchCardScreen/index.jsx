@@ -50,10 +50,10 @@ const SearchCardScreen = () => {
     const handleSuggestionPress = (item) => {
       setSearchText("");
       setSuggestions([]);
-      navigation.navigate("AllCardsWithSameNamePage", {cardName: item.name})
+      navigation.navigate("AllCardsWithSameNamePage", {cardName: item})
 
     };
-
+    
     const OptionTab = ({ option }) => (
         <TouchableOpacity
           activeOpacity={1}
@@ -80,12 +80,9 @@ const SearchCardScreen = () => {
           placeholderTextColor="#000" 
           onChangeText={handleSearchTextChange}
           value={searchText}
-          onKeyPress={ (event) => {
-            if(event.nativeEvent.key == "Enter"){
-                alert(event.nativeEvent.key) //called when multiline is true
-                // this.signIn();
-            }}}
-          
+          returnKeyType="go"
+          onSubmitEditing={() => handleSuggestionPress(searchText)}
+
         />
 
         {suggestions.length > 0 && (
@@ -94,7 +91,7 @@ const SearchCardScreen = () => {
             data={suggestions}
             keyExtractor={(item) => item.name}
             renderItem={({ item }) => (
-              <TouchableOpacity onPress={() => handleSuggestionPress(item)}>
+              <TouchableOpacity onPress={() => handleSuggestionPress(item.name)}>
                 <View style={styles.suggestionContainer}>
                   <Icon
                     name="search1"

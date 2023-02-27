@@ -9,14 +9,16 @@ pokemon.configure({ apiKey: process.env.REACT_APP_POKEMONTCG_KEY });
 
 const AllCardsWithSameNamePage = (props) => {
 
-  const cardName = props?.route.params.cardName
+    const cardName = props?.route.params.cardName
 	const dispatch = useDispatch();
 	const { data, error } = useSelector(state => state.pokedex);
+
+    console.log('cardName test', cardName)
 
     useEffect(() => {
         dispatch(getAllCardsWithSameName(cardName))
         const updateOnGoBack = props.navigation.addListener('focus', () => {
-            // dispatch(getAllCardsWithSameName(cardName))
+            dispatch(getAllCardsWithSameName(cardName))
         });
         return updateOnGoBack;
 	},[])

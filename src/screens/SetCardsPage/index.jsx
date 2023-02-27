@@ -56,25 +56,18 @@ const handleScroll = Animated.event(
   
 	return data ? (
         <View style={styles.imageContainer}>
-      <Animated.View style={{ ...styles.setDataContainer, backgroundColor: colors, transform: [{
-        scaleY: scrollY.interpolate({
-          inputRange: [0, 200],
-          outputRange: [1, 0.5],
-          extrapolate: 'clamp'
-        })
-      }] }}>
-        <Image
-          source={{
-            uri: setData?.images?.logo
-          }}
-          style={styles.setLogo}
-        />
-      </Animated.View>
-            <AnimatedFlatList
+          <View style={{ ...styles.setDataContainer, backgroundColor: colors,}}>
+            <Image
+              source={{
+                uri: setData?.images?.logo
+              }}
+              style={styles.setLogo}
+            />
+          </View>
+            <FlatList
                 numColumns={3}
                 showsVerticalScrollIndicator={false}
                 data={data}
-                onScroll={handleScroll}
                 renderItem={({item}) =>
                     <PokemonCard
                         cardData={item}
