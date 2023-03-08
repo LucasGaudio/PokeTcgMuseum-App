@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useLayoutEffect } from 'react';
 import { SafeAreaView, ScrollView, Text, FlatList, View, ActivityIndicator, Image } from 'react-native';
 import pokemon from "pokemontcgsdk";
 import styles from './styles';
@@ -27,6 +27,11 @@ const ArtistCardsScreen = (props) => {
         });
         return updateOnGoBack;
 	},[])
+
+
+    useLayoutEffect(() => {
+        props.navigation.setOptions({ headerTitle: artistName });
+    }, [props.navigation]);
 
 
     // console.log('colors', colors)

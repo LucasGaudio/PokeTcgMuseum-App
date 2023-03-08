@@ -16,9 +16,11 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 4,
         elevation: 5,
-        marginBottom: 10,
-        borderRadius: 4,
+        marginVertical: 5,
+        borderRadius: 10,
         height: 80,
+        backgroundColor: Colors.white,
+        marginHorizontal: 10,
     },
     setImage: {
         width: 120,

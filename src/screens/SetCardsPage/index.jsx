@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useLayoutEffect } from 'react';
 import { SafeAreaView, ScrollView, Animated, FlatList, View, ActivityIndicator, Image } from 'react-native';
 import pokemon from "pokemontcgsdk";
 import styles from './styles';
@@ -20,10 +20,10 @@ const SetCardsPage = (props) => {
     const [backgroundColor, setBackgroundColor] = useState("#fff");
     const [colors, setColors] = useState("#fff")
 
+
     const [scrollY] = useState(new Animated.Value(0));
 
     const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
-
 
     useEffect(() => {
       dispatch(getSet(setData.id))
@@ -32,6 +32,11 @@ const SetCardsPage = (props) => {
       });
       return updateOnGoBack;
 	  },[setData])
+
+
+    useLayoutEffect(() => {
+      props.navigation.setOptions({ headerTitle: setData.name });
+    }, [props.navigation, setData ]);
 
     const yunaUrl = setData?.images?.logo
 
@@ -47,7 +52,7 @@ const SetCardsPage = (props) => {
     const uniqueSubtypes = data && [].concat(...data.map(item => item.subtypes))
   .filter((subtype, index, self) => self.indexOf(subtype) === index);
 
-console.log(uniqueSubtypes);
+// console.log(uniqueSubtypes);
 
 const handleScroll = Animated.event(
   [{ nativeEvent: { contentOffset: { y: scrollY } } }],

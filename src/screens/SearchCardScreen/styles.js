@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-      //   backgroundColor: "#000"
+        backgroundColor: Colors.white
       //   justifyContent: 'center',
       },
       input: {
@@ -50,14 +50,14 @@ const styles = StyleSheet.create({
           borderBottomColor: 'rgba(255, 255, 255, 0.0)',
         },
         selectedTab: {
-          borderBottomColor: 'black',
+          borderBottomColor: Colors.primaryColor,
         },
         tabText: {
           color: 'rgba(0, 0, 0, 0.5)',
         },
         selectedTabText: {
-          color: 'black',
-          fontWeight: 'bold',
+          color: Colors.primaryColor,
+          fontWeight: 'bold',        
         },
 })
 

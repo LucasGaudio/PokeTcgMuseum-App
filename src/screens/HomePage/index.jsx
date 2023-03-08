@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { SafeAreaView, ScrollView, Text, FlatList, View, ActivityIndicator } from 'react-native';
 import pokemon from "pokemontcgsdk";
 import styles from './styles';
+import { Colors } from "../../constants"
 
 import IndividualSetBox from "../../components/IndividualSetBox"
 
@@ -20,7 +21,7 @@ const HomePage = () => {
     }, []);
 
 	return (
-        <View style={{flex: 1, marginBottom: 20}}>
+        <View style={{flex: 1, marginBottom: 20, }}>
             {
                 !loading ?
                     pokemonSets !== null &&   

@@ -4,12 +4,11 @@ import {
   View, Text
 } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
+
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs"
 import {NavigationContainer} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/AntDesign';
 import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
-
-
 
 import HomePage from "./src/screens/HomePage"
 import SetCardsPage from "./src/screens/SetCardsPage"
@@ -18,6 +17,7 @@ import ArtistCardsScreen from "./src/screens/ArtistCardsScreen"
 
 import SearchCardScreen from "./src/screens/SearchCardScreen"
 
+import {Colors} from "./src/constants"
 
 const Stack = createStackNavigator()
 
@@ -30,21 +30,56 @@ const App = () => {
           <Stack.Screen
             name={"Sets"}
             component={HomePage}
+            options={{
+              headerBackTitle: null,
+              headerTitleAlign: 'center',
+              headerStyle: {
+                backgroundColor: Colors.primaryColor,
+              },
+              headerTintColor: "#fff"
+            }}
           />
 
           <Stack.Screen
             name={"SetCardsPage"}
             component={SetCardsPage}
+            options={{
+              headerTitle: null,
+              headerBackTitle: null,
+              headerTitleAlign: 'center',
+              headerStyle: {
+                backgroundColor: Colors.primaryColor,
+              },
+              headerTintColor: "#fff"
+            }}
           /> 
 
           <Stack.Screen
             name={"AllCardsWithSameNamePage"}
             component={AllCardsWithSameNamePage}
+            options={{
+              headerTitle: null,
+              headerBackTitle: null,
+              headerTitleAlign: 'center',
+              headerStyle: {
+                backgroundColor: Colors.primaryColor,
+              },
+              headerTintColor: "#fff",
+            }}
           /> 
 
           <Stack.Screen
             name={"ArtistCardsScreen"}
             component={ArtistCardsScreen}
+            options={{
+              headerTitle: null,
+              headerBackTitle: null,
+              headerTitleAlign: 'center',
+              headerStyle: {
+                backgroundColor: Colors.primaryColor,
+              },
+              headerTintColor: "#fff"
+            }}
           /> 
 
         </Stack.Navigator> 
@@ -57,21 +92,56 @@ const App = () => {
           <Stack.Screen
             name={"Search"}
             component={SearchCardScreen}
+            options={{
+              headerBackTitle: null,
+              headerTitleAlign: 'center',
+              headerStyle: {
+                backgroundColor: Colors.primaryColor,
+              },
+              headerTintColor: "#fff"
+            }}
           />
 
           <Stack.Screen
             name={"SetCardsPage"}
             component={SetCardsPage}
+            options={{
+              headerTitle: null,
+              headerBackTitle: null,
+              headerTitleAlign: 'center',
+              headerStyle: {
+                backgroundColor: Colors.primaryColor,
+              },
+              headerTintColor: "#fff"
+            }}
           /> 
 
           <Stack.Screen
             name={"AllCardsWithSameNamePage"}
             component={AllCardsWithSameNamePage}
+            options={{
+              headerTitle: null,
+              headerBackTitle: null,
+              headerTitleAlign: 'center',
+              headerStyle: {
+                backgroundColor: Colors.primaryColor,
+              },
+              headerTintColor: "#fff",
+            }}
           /> 
 
           <Stack.Screen
             name={"ArtistCardsScreen"}
             component={ArtistCardsScreen}
+            options={{
+              headerTitle: null,
+              headerBackTitle: null,
+              headerTitleAlign: 'center',
+              headerStyle: {
+                backgroundColor: Colors.primaryColor,
+              },
+              headerTintColor: "#fff"
+            }}
           /> 
 
         </Stack.Navigator> 
@@ -89,16 +159,15 @@ const App = () => {
               headerShown:false,
               tabBarIcon: ({ focused }) => (
                 <MaterialIcon
-                name="cards"
-                size={20}
-                color={focused ? "#007aff" : "#000"}
-                style={{marginTop: 5}}
-
+                  name="cards"
+                  size={20}
+                  color={focused ? Colors.primaryColor : "#000"}
+                  style={{marginTop: 5}}
                 />
                 
               ),
               tabBarLabel: ({ focused }) => (
-                <Text style={{ fontSize: 16, color: focused ? "#007aff" : "#000", marginBottom: 5}}>
+                <Text style={{ fontSize: 16, color: focused ? Colors.primaryColor : "#000", marginBottom: 5}}>
                   Cards
                 </Text>
               ),
@@ -113,12 +182,12 @@ const App = () => {
                 <Icon
                 name="search1"
                 size={20}
-                color={focused ? "#007aff" : "#000"}
+                color={focused ? Colors.primaryColor : "#000"}
                 style={{marginTop: 5}}
                 />
               ),
               tabBarLabel: ({ focused }) => (
-                <Text style={{ fontSize: 16, color: focused ? "#007aff" : "#000", marginBottom: 5}}>
+                <Text style={{ fontSize: 16, color: focused ? Colors.primaryColor : "#000", marginBottom: 5}}>
                   Search card
                 </Text>
               ),

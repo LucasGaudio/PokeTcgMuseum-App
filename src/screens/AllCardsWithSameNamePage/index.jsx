@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useLayoutEffect } from 'react';
 import { SafeAreaView, ScrollView, Text, FlatList, View, ActivityIndicator, Image } from 'react-native';
 import pokemon from "pokemontcgsdk";
 import styles from './styles';
@@ -13,8 +13,6 @@ const AllCardsWithSameNamePage = (props) => {
 	const dispatch = useDispatch();
 	const { data, error } = useSelector(state => state.pokedex);
 
-    console.log('cardName test', cardName)
-
     useEffect(() => {
         dispatch(getAllCardsWithSameName(cardName))
         const updateOnGoBack = props.navigation.addListener('focus', () => {
@@ -22,6 +20,10 @@ const AllCardsWithSameNamePage = (props) => {
         });
         return updateOnGoBack;
 	},[])
+
+    useLayoutEffect(() => {
+        props.navigation.setOptions({ headerTitle: cardName });
+    }, [props.navigation]);
   
 	return data ? (
         <View style={styles.imageContainer}>
