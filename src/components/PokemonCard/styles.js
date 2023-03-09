@@ -56,13 +56,12 @@ const styles = StyleSheet.create({
     },
     modalBottomText: {
         fontWeight: "700",
-        color: "#485fc7",
+        color: Colors.primaryColor,
         textDecorationLine: 'underline',
-        maxWidth: 110
+        maxWidth: 80
     },
     modalTopText: {
         color: Colors.black,
-
     }
     
     

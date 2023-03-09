@@ -1,6 +1,7 @@
 import {
 	GET_SET,
 	GET_ARTIST,
+	GET_SUBTYPE,
 	SET_ERROR,
 	GET_ALL_CARDS_WITH_SAME_NAME,
 	GET_RANDOM_CARD,
@@ -29,7 +30,6 @@ export const getArtist = (artist) => {
 				.all({ q: `artist:${artistReplaced}`, orderBy: "set.releaseDate" })
 				.then(result => {
 					const resData = result;
-					console.log('resData', resData)
 					dispatch({
 						type: GET_ARTIST,
 						payload: resData,
@@ -76,6 +76,28 @@ export const getSet = setId => {
 
 				dispatch({
 					type: GET_SET,
+					payload: resData,
+				});
+			});
+		} catch (err) {
+			dispatch(setError(err.message));
+		}
+	};
+};
+
+export const getSubtype = (subtype) => {
+	return async dispatch => {
+		dispatch({
+			type: GET_SUBTYPE,
+			payload: null,
+		});
+		try {
+			pokemon.card
+			.all({ q: `subtypes:${subtype}`, orderBy: "set.releaseDate" })
+			.then(result => {
+				const resData = result;
+				dispatch({
+					type: GET_SUBTYPE,
 					payload: resData,
 				});
 			});

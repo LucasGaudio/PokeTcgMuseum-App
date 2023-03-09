@@ -21,7 +21,7 @@ const HomePage = () => {
     }, []);
 
 	return (
-        <View style={{flex: 1, marginBottom: 20, }}>
+        <View style={{flex: 1, marginBottom: 20, marginTop: 7 }}>
             {
                 !loading ?
                     pokemonSets !== null &&   

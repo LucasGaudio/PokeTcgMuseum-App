@@ -25,7 +25,6 @@ const SetCardsPage = (props) => {
 
     const filteredData = selectedOption === "All" ? data : data?.filter(value => value?.subtypes?.includes(selectedOption))
 
-    console.log('filteredData', filteredData)
     const [scrollY] = useState(new Animated.Value(0));
 
     const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);

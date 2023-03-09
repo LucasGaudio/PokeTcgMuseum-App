@@ -14,6 +14,8 @@ import HomePage from "./src/screens/HomePage"
 import SetCardsPage from "./src/screens/SetCardsPage"
 import AllCardsWithSameNamePage from "./src/screens/AllCardsWithSameNamePage"
 import ArtistCardsScreen from "./src/screens/ArtistCardsScreen"
+import PokemonSubtypePage from "./src/screens/PokemonSubtypePage"
+
 
 import SearchCardScreen from "./src/screens/SearchCardScreen"
 
@@ -82,6 +84,20 @@ const App = () => {
             }}
           /> 
 
+          <Stack.Screen
+            name={"PokemonSubtypePage"}
+            component={PokemonSubtypePage}
+            options={{
+              headerTitle: null,
+              headerBackTitle: null,
+              headerTitleAlign: 'center',
+              headerStyle: {
+                backgroundColor: Colors.primaryColor,
+              },
+              headerTintColor: "#fff"
+            }}
+          /> 
+
         </Stack.Navigator> 
     )
   }
@@ -90,7 +106,7 @@ const App = () => {
     return (
        <Stack.Navigator>
           <Stack.Screen
-            name={"Search a Card"}
+            name={"Search aCard"}
             component={SearchCardScreen}
             options={{
               headerBackTitle: null,
@@ -144,10 +160,23 @@ const App = () => {
             }}
           /> 
 
+          <Stack.Screen
+            name={"PokemonSubtypePage"}
+            component={PokemonSubtypePage}
+            options={{
+              headerTitle: null,
+              headerBackTitle: null,
+              headerTitleAlign: 'center',
+              headerStyle: {
+                backgroundColor: Colors.primaryColor,
+              },
+              headerTintColor: "#fff"
+            }}
+          /> 
+
         </Stack.Navigator> 
     )
   }
-  SearchCardScreen
 
   return (
     <NavigationContainer>

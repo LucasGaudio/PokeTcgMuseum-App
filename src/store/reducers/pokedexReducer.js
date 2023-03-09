@@ -1,6 +1,7 @@
 import {
 	GET_SET,
 	GET_ARTIST,
+	GET_SUBTYPE,
 	SET_ERROR,
 	GET_ALL_CARDS_WITH_SAME_NAME,
 	GET_RANDOM_CARD,
@@ -24,7 +25,11 @@ export default (state = initialState, action) => {
 				data: action.payload,
 				error: "",
 			};
-
+		case GET_SUBTYPE:
+			return {
+				data: action.payload,
+				error: "",
+			};
 		case GET_ALL_CARDS_WITH_SAME_NAME:
 			return {
 				data: action.payload,

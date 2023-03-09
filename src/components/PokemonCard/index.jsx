@@ -18,8 +18,8 @@ const PokemonCard = ({cardData, cardImageLarge, cardSmall}) => {
   
   const fadeIn = () => {
     if (cardData.supertype === "Pokémon") {
-      const filteredPokemonName = allPokemonNameData.filter(item => item.dex === cardData.nationalPokedexNumbers[0]);
-      setFilteredPokemonName(filteredPokemonName[0].name)
+      const filteredAllPokemonName = allPokemonNameData.filter(item => item.dex === cardData.nationalPokedexNumbers[0]);
+      setFilteredPokemonName(filteredAllPokemonName[0].name)
     }
    
     Animated.timing(fadeAnim, {
@@ -40,14 +40,29 @@ const PokemonCard = ({cardData, cardImageLarge, cardSmall}) => {
   };
   
 
-  const CardaInfoData = ({topLine, bottomLine, onPress}) => (
+  const CardaInfoData = ({topLine, bottomLine, onPress}) => 
+  (
     <View>
       <Text style={styles.modalTopText}>{topLine}</Text>
-      <TouchableOpacity onPress={onPress} >
-        <Text style={styles.modalBottomText}>{bottomLine}</Text>
-      </TouchableOpacity>
+        {Array.isArray(bottomLine) && bottomLine.length >= 1 ? 
+          bottomLine.map((item) => (
+            <TouchableOpacity key={item} onPress={() => navigation.navigate("PokemonSubtypePage", {subtypeName: item})} >
+              <Text style={styles.modalBottomText}>{item}</Text>
+            </TouchableOpacity>
+          )) : (
+            <TouchableOpacity onPress={onPress}>
+              <Text style={styles.modalBottomText}>{bottomLine}</Text>
+            </TouchableOpacity>
+
+          )
+        }
     </View>
   )
+
+  const filteredPokemonSubtypes = () => {
+    const filteredArr = cardData.subtypes.filter(value => value !== "Basic" && value !== "Stage 1" && value !== "Stage 2" && value !== "Goldenrod Game Corner" && value !== undefined);    
+    return filteredArr
+  }
 
   return (
     <View style={styles.container}>
@@ -97,6 +112,9 @@ const PokemonCard = ({cardData, cardImageLarge, cardSmall}) => {
               <CardaInfoData topLine={"Other"} bottomLine={filteredPokemonName} onPress={() => navigation.navigate("AllCardsWithSameNamePage", {cardName: filteredPokemonName})} />
               <CardaInfoData topLine={"Set name"} bottomLine={cardData.set.name} onPress={() => navigation.navigate("SetCardsPage", {setData: cardData.set})} />
               <CardaInfoData topLine={"artist"} bottomLine={cardData.artist} onPress={() => navigation.navigate("ArtistCardsScreen", {artistName: cardData.artist})} />
+              {cardData.supertype === "Pokémon" && filteredPokemonSubtypes().length > 0 &&
+                <CardaInfoData topLine={"Other"} bottomLine={filteredPokemonSubtypes()} onPress={() => {}} />
+              }
 
             </View>
           </Animated.View>
