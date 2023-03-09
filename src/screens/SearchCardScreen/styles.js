@@ -32,9 +32,6 @@ const styles = StyleSheet.create({
         fontSize: 18,
         color: Colors.black
       },
-      selectedTab: {
-          backgroundColor: 'black',
-      },
       OptionTabContainer: {
           flexDirection: 'row',
           alignItems: 'center',

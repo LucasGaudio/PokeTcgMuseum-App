@@ -8,7 +8,7 @@ import allPokemonNameData from "../../assets/json/allPokemonNames.json";
 import allTrainers from "../../assets/json/allTrainers.json";
 import allEnergy from "../../assets/json/allEnergy.json";
 
-
+import OptionTab from "../../components/OptionTab"
 
 const SearchCardScreen = () => {
     const [searchText, setSearchText] = useState('');
@@ -40,38 +40,24 @@ const SearchCardScreen = () => {
     };
 
     const toggleOption = (option) => {
-    setSelectedOption(option);
-    setSearchText("")
-    setSuggestions([]);
-
+      setSelectedOption(option);
+      setSearchText("")
+      setSuggestions([]);
     };
 
-  
     const handleSuggestionPress = (item) => {
       setSearchText("");
       setSuggestions([]);
       navigation.navigate("AllCardsWithSameNamePage", {cardName: item})
 
     };
-    
-    const OptionTab = ({ option }) => (
-        <TouchableOpacity
-          activeOpacity={1}
-          onPress={() => toggleOption(option)}
-          style={[styles.tab, selectedOption === option && styles.selectedTab]}
-        >
-          <Text style={[styles.tabText, selectedOption === option && styles.selectedTabText]}>
-            {option}
-          </Text>
-        </TouchableOpacity>
-    );
   
     return (
       <View style={styles.container}>
         <View style={styles.OptionTabContainer}>
-            <OptionTab option="Pokemon" />
-            <OptionTab option="Trainer" />
-            <OptionTab option="Energy" />
+            <OptionTab selectedOption={selectedOption} onPress={toggleOption} option="Pokemon" />
+            <OptionTab selectedOption={selectedOption} onPress={toggleOption} option="Trainer" />
+            <OptionTab selectedOption={selectedOption} onPress={toggleOption} option="Energy" />
         </View>
            
         <TextInput

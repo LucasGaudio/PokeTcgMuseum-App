@@ -16,8 +16,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         marginTop: 10
-
-
     },
     setDataContainer: {
         alignItems: 'center',
@@ -29,7 +27,14 @@ const styles = StyleSheet.create({
         width: 150,
         height: 100,
         resizeMode: 'contain' 
-    }
+    },
+    OptionTabContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        paddingHorizontal: 10,
+        marginBottom: 10
+    },
     // FlatListContainer: {
     //     flexDirection: "row",
     //     alignItems: 'center',
