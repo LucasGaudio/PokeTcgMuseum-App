@@ -86,6 +86,7 @@ export const getSet = setId => {
 };
 
 export const getSubtype = (subtype) => {
+	const subtypeReplaced = subtype.split(" ").join(".");
 	return async dispatch => {
 		dispatch({
 			type: GET_SUBTYPE,
@@ -93,7 +94,7 @@ export const getSubtype = (subtype) => {
 		});
 		try {
 			pokemon.card
-			.all({ q: `subtypes:${subtype}`, orderBy: "set.releaseDate" })
+			.all({ q: `subtypes:${subtypeReplaced}`, orderBy: "set.releaseDate" })
 			.then(result => {
 				const resData = result;
 				dispatch({

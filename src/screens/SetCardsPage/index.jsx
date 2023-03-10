@@ -21,7 +21,7 @@ const SetCardsPage = (props) => {
     const [loading, setLoading] = useState(false);
     const [backgroundColor, setBackgroundColor] = useState("#fff");
     const [colors, setColors] = useState("#fff")
-    const [selectedOption, setSelectedOption] = useState('All');
+    const [selectedOption, setSelectedOption] = useState("All");
 
     const filteredData = selectedOption === "All" ? data : data?.filter(value => value?.subtypes?.includes(selectedOption))
 
@@ -30,6 +30,7 @@ const SetCardsPage = (props) => {
     const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
 
     useEffect(() => {
+      setSelectedOption("All")
       dispatch(getSet(setData.id))
       const updateOnGoBack = props.navigation.addListener('focus', () => {
         dispatch(getSet(setData.id))
@@ -37,14 +38,11 @@ const SetCardsPage = (props) => {
       return updateOnGoBack;
 	  },[setData])
 
-
     useLayoutEffect(() => {
       props.navigation.setOptions({ headerTitle: setData.name });
     }, [props.navigation, setData ]);
 
     const yunaUrl = setData?.images?.logo
-
-
 
     // console.log('colors', colors)
 
