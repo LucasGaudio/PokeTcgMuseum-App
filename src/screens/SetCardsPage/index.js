@@ -15,58 +15,35 @@ const SetCardsPage = (props) => {
 	const dispatch = useDispatch();
 	const { data, error } = useSelector(state => state.pokedex);
 
-  // console.log('testando', data && data[0].subtypes)
+  const [selectedOption, setSelectedOption] = useState("All");
 
-    const [pokemonSets, setPokemonSets] = useState(null);
-    const [loading, setLoading] = useState(false);
-    const [backgroundColor, setBackgroundColor] = useState("#fff");
-    const [colors, setColors] = useState("#fff")
-    const [selectedOption, setSelectedOption] = useState("All");
+  const filteredData = selectedOption === "All" ? data : data?.filter(value => value?.subtypes?.includes(selectedOption))
 
-    const filteredData = selectedOption === "All" ? data : data?.filter(value => value?.subtypes?.includes(selectedOption))
-
-    const [scrollY] = useState(new Animated.Value(0));
-
-    const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
-
-    useEffect(() => {
-      setSelectedOption("All")
+  useEffect(() => {
+    setSelectedOption("All")
+    dispatch(getSet(setData.id))
+    const updateOnGoBack = props.navigation.addListener('focus', () => {
       dispatch(getSet(setData.id))
-      const updateOnGoBack = props.navigation.addListener('focus', () => {
-        dispatch(getSet(setData.id))
-      });
-      return updateOnGoBack;
-	  },[setData])
+    });
+    return updateOnGoBack;
+  },[setData])
 
-    useLayoutEffect(() => {
-      props.navigation.setOptions({ headerTitle: setData.name });
-    }, [props.navigation, setData ]);
+  useLayoutEffect(() => {
+    props.navigation.setOptions({ headerTitle: setData.name });
+  }, [props.navigation, setData ]);
 
-    const yunaUrl = setData?.images?.logo
+  const uniqueSubtypes = data && [].concat(...data.map(item => item.subtypes))
+  .filter((subtype, index, self) => self.indexOf(subtype) === index);
 
-    // console.log('colors', colors)
+  const filteredArr = uniqueSubtypes && uniqueSubtypes.filter(value => value !== "Basic" && value !== "Stage 1" && value !== "Stage 2" && value !== "Goldenrod Game Corner" && value !== undefined);
 
-    // const uniqueSubtypes = data && data.map(item => item.subtypes)
-    // .filter((subtypes, index, self) => self.indexOf(subtypes) === index);
-  
-
-    const uniqueSubtypes = data && [].concat(...data.map(item => item.subtypes))
-    .filter((subtype, index, self) => self.indexOf(subtype) === index);
-
-    const filteredArr = uniqueSubtypes && uniqueSubtypes.filter(value => value !== "Basic" && value !== "Stage 1" && value !== "Stage 2" && value !== "Goldenrod Game Corner" && value !== undefined);
-
-    const toggleOption = (option) => {
-      setSelectedOption(option);
-    };
-
-    const handleScroll = Animated.event(
-      [{ nativeEvent: { contentOffset: { y: scrollY } } }],
-      { useNativeDriver: true }
-    );
+  const toggleOption = (option) => {
+    setSelectedOption(option);
+  };
   
 	return data ? (
         <View style={styles.imageContainer}>
-          <View style={{ ...styles.setDataContainer, backgroundColor: colors,}}>
+          <View style={styles.setDataContainer}>
             <Image
               source={{
                 uri: setData?.images?.logo

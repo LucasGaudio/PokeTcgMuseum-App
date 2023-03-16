@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
         // margin: 5,
         // margin: 4
         marginHorizontal: 4,
-        marginVertical: 2
+        marginVertical: 2,
     },
     cardView: {
 		boxShadow: "rgba(0, 0, 0, 0.5)",

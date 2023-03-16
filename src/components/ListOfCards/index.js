@@ -26,70 +26,8 @@ const ListOfCards = (props) => {
       return updateOnGoBack;
 	  },[listOfCardsData])
 
-    // const yunaUrl = setData?.images?.logo
-
-    // useEffect(() => {
-    //     if (data) {
-    //         const fetchColors = async () => {
-    //             const result = await ImageColors.getColors(yunaUrl, {
-    //               fallback: '#000000',
-    //               quality: 'low',
-    //               pixelSpacing: 5,
-    //               cache: true,
-    //               headers: {
-    //                 authorization: 'Basic 123',
-    //               },
-    //             })
-          
-    //             switch (result.platform) {
-    //               case 'android':
-    //               case 'web':
-    //                 setColors({
-    //                   colorOne: { value: result.lightVibrant, name: 'lightVibrant' },
-    //                   colorTwo: { value: result.dominant, name: 'dominant' },
-    //                   colorThree: { value: result.vibrant, name: 'vibrant' },
-    //                   colorFour: { value: result.darkVibrant, name: 'darkVibrant' },
-    //                   rawResult: JSON.stringify(result),
-    //                 })
-    //                 break
-    //               case 'ios':
-    //                 setColors({
-    //                   colorOne: { value: result.background, name: 'background' },
-    //                   colorTwo: { value: result.detail, name: 'detail' },
-    //                   colorThree: { value: result.primary, name: 'primary' },
-    //                   colorFour: { value: result.secondary, name: 'secondary' },
-    //                   rawResult: JSON.stringify(result),
-    //                 })
-    //                 break
-    //               default:
-    //                 throw new Error('Unexpected platform')
-    //             }
-          
-    //             setLoading(false)
-    //           }
-          
-    //           fetchColors()
-    //     }
-      
-    //   }, [data])
-
-    // console.log('colors', colors)
-
-    const uniqueSupertypes = data && data.map(item => item.supertype)
-    .filter((supertype, index, self) => self.indexOf(supertype) === index);
-  
-    // console.log('uniqueSupertypes', uniqueSupertypes)
-  
 	return data ? (
         <View style={styles.imageContainer}>
-            {/* <View style={{...styles.setDataContainer, backgroundColor: colors}}>
-                <Image
-                    source={{
-                        uri: setData?.images?.logo
-                    }}
-                    style={styles.setLogo}
-                />
-            </View> */}
             <FlatList
                 numColumns={3}
                 showsVerticalScrollIndicator={false}

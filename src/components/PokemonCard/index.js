@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { View, Image, Text, TouchableOpacity, Modal, Animated, ActivityIndicator } from 'react-native';
 import pokemon from "pokemontcgsdk";
 import styles from "./styles"
-import { PanGestureHandler, State } from 'react-native-gesture-handler';
+import { PanGestureHandler } from 'react-native-gesture-handler';
 import allPokemonNameData from "../../assets/json/allPokemonNames.json";
 import {useNavigation} from "@react-navigation/native"
 

@@ -76,6 +76,7 @@ const SearchCardScreen = () => {
           <FlatList
             data={suggestions}
             keyExtractor={(item) => item.name}
+            contentContainerStyle={{ marginBottom: 1 }}
             renderItem={({ item }) => (
               <TouchableOpacity onPress={() => handleSuggestionPress(item.name)}>
                 <View style={styles.suggestionContainer}>

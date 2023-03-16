@@ -10,15 +10,8 @@ pokemon.configure({ apiKey: process.env.REACT_APP_POKEMONTCG_KEY });
 const ArtistCardsScreen = (props) => {
 
     const artistName = props?.route.params.artistName
-    console.log('artistName', artistName)
 	const dispatch = useDispatch();
 	const { data, error } = useSelector(state => state.pokedex);
-
-    const [pokemonSets, setPokemonSets] = useState(null);
-    const [loading, setLoading] = useState(false);
-    const [backgroundColor, setBackgroundColor] = useState("#fff");
-    const [colors, setColors] = useState("#fff")
-
 
     useEffect(() => {
         dispatch(getArtist(artistName))
@@ -33,24 +26,8 @@ const ArtistCardsScreen = (props) => {
         props.navigation.setOptions({ headerTitle: artistName });
     }, [props.navigation]);
 
-
-    // console.log('colors', colors)
-
-    const uniqueSupertypes = data && data.map(item => item.supertype)
-    .filter((supertype, index, self) => self.indexOf(supertype) === index);
-  
-    // console.log('uniqueSupertypes', uniqueSupertypes)
-  
 	return data ? (
         <View style={styles.imageContainer}>
-            {/* <View style={{...styles.setDataContainer, backgroundColor: colors}}>
-                <Image
-                    source={{
-                        uri: setData.images.logo
-                    }}
-                    style={styles.setLogo}
-                />
-            </View> */}
             <FlatList
                 numColumns={3}
                 showsVerticalScrollIndicator={false}
@@ -62,7 +39,6 @@ const ArtistCardsScreen = (props) => {
                 }
             /> 
             
-
         </View>
     ) : 
         <View style={styles.container}>
