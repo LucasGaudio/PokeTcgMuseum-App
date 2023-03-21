@@ -72,8 +72,6 @@ const SetCardsPage = (props) => {
                 }
                 keyExtractor={item => item.id}
             /> 
-            
-
         </View>
     ) : 
         <View style={styles.container}>

@@ -106,7 +106,7 @@ const App = () => {
     return (
        <Stack.Navigator>
           <Stack.Screen
-            name={"Search aCard"}
+            name={"Search a Card"}
             component={SearchCardScreen}
             options={{
               headerBackTitle: null,

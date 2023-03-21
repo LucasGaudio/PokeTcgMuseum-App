@@ -1,15 +1,20 @@
 import React, { useEffect, useState, useLayoutEffect } from 'react';
-import { SafeAreaView, ScrollView, Text, FlatList, View, ActivityIndicator, Image } from 'react-native';
+import { SafeAreaView, ScrollView, Text, FlatList, View, ActivityIndicator } from 'react-native';
 import pokemon from "pokemontcgsdk";
 import styles from './styles';
 import { useDispatch, useSelector } from "react-redux";
 import { getAllCardsWithSameName } from "../../store/actions/setsActions";
 import PokemonCard from "../../components/PokemonCard"
+import { useRoute } from '@react-navigation/native';
 pokemon.configure({ apiKey: process.env.REACT_APP_POKEMONTCG_KEY });
 
 const AllCardsWithSameNamePage = (props) => {
+    const route = useRoute();
 
-    const cardName = props?.route.params.cardName
+
+
+    const cardName = route.params.cardName
+    console.log('cardName', cardName)
 	const dispatch = useDispatch();
 	const { data, error } = useSelector(state => state.pokedex);
 
