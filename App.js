@@ -7,19 +7,21 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs"
 import {NavigationContainer} from '@react-navigation/native';
-import Icon from 'react-native-vector-icons/AntDesign';
 import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+import OcticonsIcon from 'react-native-vector-icons/Octicons';
 
-import HomePage from "./src/screens/HomePage"
-import SetCardsPage from "./src/screens/SetCardsPage"
-import AllCardsWithSameNamePage from "./src/screens/AllCardsWithSameNamePage"
+import HomeScreen from "./src/screens/HomeScreen"
+import SetCardsScreen from "./src/screens/SetCardsScreen"
+import AllCardsWithSameNameScreen from "./src/screens/AllCardsWithSameNameScreen"
 import ArtistCardsScreen from "./src/screens/ArtistCardsScreen"
-import PokemonSubtypePage from "./src/screens/PokemonSubtypePage"
-
+import PokemonSubtypeScreen from "./src/screens/PokemonSubtypeScreen"
+import SettingsScreen from "./src/screens/SettingsScreen"
 
 import SearchCardScreen from "./src/screens/SearchCardScreen"
 
 import {Colors} from "./src/constants"
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import {useNavigation} from "@react-navigation/native"
 
 const Stack = createStackNavigator()
 
@@ -27,24 +29,35 @@ const App = () => {
   const Tab = createBottomTabNavigator()
 
   const HomeStack = () => {
+    const navigation = useNavigation()
+
     return (
        <Stack.Navigator>
           <Stack.Screen
             name={"Sets"}
-            component={HomePage}
+            component={HomeScreen}
             options={{
               headerBackTitle: null,
               headerTitleAlign: 'center',
               headerStyle: {
                 backgroundColor: Colors.primaryColor,
               },
-              headerTintColor: "#fff"
+              headerTintColor: "#fff",
+              headerRight: () => (
+                <TouchableOpacity style={{marginRight: 15}} onPress={() => navigation.navigate("SettingsScreen")} >
+                   <OcticonsIcon
+                      name="gear"
+                      size={20}
+                      color={"#fff"}
+                    />
+                </TouchableOpacity>
+              )
             }}
           />
 
           <Stack.Screen
-            name={"SetCardsPage"}
-            component={SetCardsPage}
+            name={"SetCardsScreen"}
+            component={SetCardsScreen}
             options={{
               headerTitle: null,
               headerBackTitle: null,
@@ -57,8 +70,8 @@ const App = () => {
           /> 
 
           <Stack.Screen
-            name={"AllCardsWithSameNamePage"}
-            component={AllCardsWithSameNamePage}
+            name={"AllCardsWithSameNameScreen"}
+            component={AllCardsWithSameNameScreen}
             options={{
               headerTitle: null,
               headerBackTitle: null,
@@ -85,8 +98,8 @@ const App = () => {
           /> 
 
           <Stack.Screen
-            name={"PokemonSubtypePage"}
-            component={PokemonSubtypePage}
+            name={"PokemonSubtypeScreen"}
+            component={PokemonSubtypeScreen}
             options={{
               headerTitle: null,
               headerBackTitle: null,
@@ -98,11 +111,26 @@ const App = () => {
             }}
           /> 
 
+          <Stack.Screen
+            name={"SettingsScreen"}
+            component={SettingsScreen}
+            options={{
+              headerTitle: null,
+              headerBackTitle: null,
+              headerTitleAlign: 'center',
+              headerStyle: {
+                backgroundColor: Colors.primaryColor,
+              },
+              headerTintColor: "#fff",
+            }}
+          /> 
         </Stack.Navigator> 
     )
   }
 
   const SearchStack = () => {
+    const navigation = useNavigation()
+
     return (
        <Stack.Navigator>
           <Stack.Screen
@@ -114,13 +142,13 @@ const App = () => {
               headerStyle: {
                 backgroundColor: Colors.primaryColor,
               },
-              headerTintColor: "#fff"
+              headerTintColor: "#fff",
             }}
           />
 
           <Stack.Screen
-            name={"SetCardsPage"}
-            component={SetCardsPage}
+            name={"SetCardsScreen"}
+            component={SetCardsScreen}
             options={{
               headerTitle: null,
               headerBackTitle: null,
@@ -133,8 +161,8 @@ const App = () => {
           /> 
 
           <Stack.Screen
-            name={"AllCardsWithSameNamePage"}
-            component={AllCardsWithSameNamePage}
+            name={"AllCardsWithSameNameScreen"}
+            component={AllCardsWithSameNameScreen}
             options={{
               headerTitle: null,
               headerBackTitle: null,
@@ -161,8 +189,8 @@ const App = () => {
           /> 
 
           <Stack.Screen
-            name={"PokemonSubtypePage"}
-            component={PokemonSubtypePage}
+            name={"PokemonSubtypeScreen"}
+            component={PokemonSubtypeScreen}
             options={{
               headerTitle: null,
               headerBackTitle: null,
@@ -173,6 +201,8 @@ const App = () => {
               headerTintColor: "#fff"
             }}
           /> 
+
+      
 
         </Stack.Navigator> 
     )
@@ -191,7 +221,7 @@ const App = () => {
                   name="cards"
                   size={20}
                   color={focused ? Colors.primaryColor : "#000"}
-                  style={{marginTop: 5}}
+                  style={{marginTop: 3}}
                 />
                 
               ),
@@ -208,11 +238,11 @@ const App = () => {
             options={{ 
               headerShown:false,
               tabBarIcon: ({ focused }) => (
-                <Icon
-                name="search1"
+                <OcticonsIcon
+                name="search"
                 size={20}
                 color={focused ? Colors.primaryColor : "#000"}
-                style={{marginTop: 5}}
+                style={{marginTop: 3}}
                 />
               ),
               tabBarLabel: ({ focused }) => (

@@ -9,7 +9,7 @@ import OptionTab from "../../components/OptionTab"
 
 pokemon.configure({ apiKey: process.env.REACT_APP_POKEMONTCG_KEY });
 
-const SetCardsPage = (props) => {
+const SetCardsScreen = (props) => {
 
   const setData = props?.route.params.setData
 	const dispatch = useDispatch();
@@ -17,7 +17,7 @@ const SetCardsPage = (props) => {
 
   const [selectedOption, setSelectedOption] = useState("All");
 
-  const filteredData = selectedOption === "All" ? data : data?.filter(value => value?.subtypes?.includes(selectedOption))
+  const filteredData = selectedOption === "All" ? data : data?.filter(value => value?.subtypes?.some(subtype => subtype.startsWith(selectedOption)))
 
   useEffect(() => {
     setSelectedOption("All")
@@ -79,4 +79,4 @@ const SetCardsPage = (props) => {
         </View>
 };
 
-export default SetCardsPage
+export default SetCardsScreen

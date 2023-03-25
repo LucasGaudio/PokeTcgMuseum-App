@@ -8,7 +8,7 @@ import PokemonCard from "../../components/PokemonCard"
 import { useRoute } from '@react-navigation/native';
 pokemon.configure({ apiKey: process.env.REACT_APP_POKEMONTCG_KEY });
 
-const AllCardsWithSameNamePage = (props) => {
+const AllCardsWithSameNameScreen = (props) => {
     const route = useRoute();
 
 
@@ -49,4 +49,4 @@ const AllCardsWithSameNamePage = (props) => {
         </View>
 };
 
-export default AllCardsWithSameNamePage
+export default AllCardsWithSameNameScreen

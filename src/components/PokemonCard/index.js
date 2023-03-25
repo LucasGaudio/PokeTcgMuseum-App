@@ -52,7 +52,7 @@ const PokemonCard = ({cardData, cardImageLarge, cardSmall}) => {
       <Text style={styles.modalTopText}>{topLine}</Text>
         {Array.isArray(bottomLine) && bottomLine.length >= 1 ? 
           bottomLine.map((item) => (
-            <TouchableOpacity key={item} onPress={() => navigation.push("PokemonSubtypePage", {subtypeName: item})} >
+            <TouchableOpacity key={item} onPress={() => navigation.push("PokemonSubtypeScreen", {subtypeName: item})} >
               <Text style={styles.modalBottomText}>{item}</Text>
             </TouchableOpacity>
           )) : (
@@ -115,8 +115,8 @@ const PokemonCard = ({cardData, cardImageLarge, cardSmall}) => {
               // onLoadEnd={() => setIsLoading(false)}
               />
             <View style={styles.cardaInfoContainer}>
-              <CardaInfoData topLine={"Other"} bottomLine={filteredPokemonName} onPress={() => navigation.push("AllCardsWithSameNamePage", {cardName: filteredPokemonName})} />
-              <CardaInfoData topLine={"Set name"} bottomLine={cardData.set.name} onPress={() => navigation.push("SetCardsPage", {setData: cardData.set})} />
+              <CardaInfoData topLine={"Other"} bottomLine={filteredPokemonName} onPress={() => navigation.push("AllCardsWithSameNameScreen", {cardName: filteredPokemonName})} />
+              <CardaInfoData topLine={"Set name"} bottomLine={cardData.set.name} onPress={() => navigation.push("SetCardsScreen", {setData: cardData.set})} />
               <CardaInfoData topLine={"artist"} bottomLine={cardData.artist} onPress={() => navigation.push("ArtistCardsScreen", {artistName: cardData.artist})} />
               {cardData.supertype === "Pokémon" && filteredPokemonSubtypes().length > 0 &&
                 <CardaInfoData topLine={"Other"} bottomLine={filteredPokemonSubtypes()} onPress={() => {}} />

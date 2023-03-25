@@ -15,7 +15,7 @@ const IndividualSetBox = ({setData}) => {
       };
 
 	return (
-        <TouchableOpacity onPress={() => navigation.navigate("SetCardsPage", {setData: setData})} style={styles.container}>
+        <TouchableOpacity onPress={() => navigation.navigate("SetCardsScreen", {setData: setData})} style={styles.container}>
             <Image
                 source={{
                     uri: setData.images.logo

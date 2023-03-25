@@ -7,7 +7,7 @@ import { getSubtype } from "../../store/actions/setsActions";
 import PokemonCard from "../../components/PokemonCard"
 pokemon.configure({ apiKey: process.env.REACT_APP_POKEMONTCG_KEY });
 
-const PokemonSubtypePage = (props) => {
+const PokemonSubtypeScreen = (props) => {
 
     const subtypeName = props?.route.params.subtypeName
 	const dispatch = useDispatch();
@@ -47,4 +47,4 @@ const PokemonSubtypePage = (props) => {
         </View>
 };
 
-export default PokemonSubtypePage
+export default PokemonSubtypeScreen

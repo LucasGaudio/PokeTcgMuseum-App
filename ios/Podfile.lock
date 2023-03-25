@@ -386,8 +386,6 @@ PODS:
     - React-perflogger (= 0.71.1)
   - RNGestureHandler (2.9.0):
     - React-Core
-  - RNImageColors (1.5.1):
-    - React-Core
   - RNScreens (3.19.0):
     - React-Core
     - React-RCTImage
@@ -459,7 +457,6 @@ DEPENDENCIES:
   - React-runtimeexecutor (from `../node_modules/react-native/ReactCommon/runtimeexecutor`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
-  - RNImageColors (from `../node_modules/react-native-image-colors`)
   - RNScreens (from `../node_modules/react-native-screens`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
@@ -553,8 +550,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
-  RNImageColors:
-    :path: "../node_modules/react-native-image-colors"
   RNScreens:
     :path: "../node_modules/react-native-screens"
   RNVectorIcons:
@@ -611,7 +606,6 @@ SPEC CHECKSUMS:
   React-runtimeexecutor: 311feb67600774723fe10eb8801d3138cae9ad67
   ReactCommon: 03be76588338a27a88d103b35c3c44a3fd43d136
   RNGestureHandler: 071d7a9ad81e8b83fe7663b303d132406a7d8f39
-  RNImageColors: c07f07f2725ab2d499874a591027fc0d959ca3ae
   RNScreens: ea4cd3a853063cda19a4e3c28d2e52180c80f4eb
   RNVectorIcons: fcc2f6cb32f5735b586e66d14103a74ce6ad61f8
   SocketRocket: fccef3f9c5cedea1353a9ef6ada904fde10d6608
