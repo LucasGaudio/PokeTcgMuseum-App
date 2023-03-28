@@ -19,7 +19,6 @@ const PokemonCard = ({cardData, cardImageLarge, cardSmall}) => {
   // filteredPokemonName && console.log('filteredPokemonName', filteredPokemonName)
   
   const fadeIn = () => {
-   
     Animated.timing(fadeAnim, {
       toValue: 1,
       duration: 500,
