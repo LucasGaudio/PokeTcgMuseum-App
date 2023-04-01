@@ -48,7 +48,7 @@ const SearchCardScreen = () => {
     const handleSuggestionPress = (item) => {
       setSearchText("");
       setSuggestions([]);
-      navigation.navigate("AllCardsWithSameNamePage", {cardName: item})
+      navigation.navigate("AllCardsWithSameNameScreen", {cardName: item})
 
     };
   

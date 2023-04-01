@@ -3618,5 +3618,425 @@
     {
      "dex": 905,
      "name": "Enamorus"
+    },
+    {
+     "dex": 906,
+     "name": "Sprigatito"
+    },
+    {
+     "dex": 907,
+     "name": "Floragato"
+    },
+    {
+     "dex": 908,
+     "name": "Meowscarada"
+    },
+    {
+     "dex": 909,
+     "name": "Fuecoco"
+    },
+    {
+     "dex": 910,
+     "name": "Crocalor"
+    },
+    {
+     "dex": 911,
+     "name": "Skeledirge"
+    },
+    {
+     "dex": 912,
+     "name": "Quaxly"
+    },
+    {
+     "dex": 913,
+     "name": "Quaxwell"
+    },
+    {
+     "dex": 914,
+     "name": "Quaquaval"
+    },
+    {
+     "dex": 915,
+     "name": "Lechonk"
+    },
+    {
+     "dex": 916,
+     "name": "Oinkologne"
+    },
+    {
+     "dex": 917,
+     "name": "Tarountula"
+    },
+    {
+     "dex": 918,
+     "name": "Spidops"
+    },
+    {
+     "dex": 919,
+     "name": "Nymble"
+    },
+    {
+     "dex": 920,
+     "name": "Lokix"
+    },
+    {
+     "dex": 921,
+     "name": "Pawmi"
+    },
+    {
+     "dex": 922,
+     "name": "Pawmo"
+    },
+    {
+     "dex": 923,
+     "name": "Pawmot"
+    },
+    {
+     "dex": 924,
+     "name": "Tandemaus"
+    },
+    {
+     "dex": 925,
+     "name": "Maushold"
+    },
+    {
+     "dex": 926,
+     "name": "Fidough"
+    },
+    {
+     "dex": 927,
+     "name": "Dachsbun"
+    },
+    {
+     "dex": 928,
+     "name": "Smoliv"
+    },
+    {
+     "dex": 929,
+     "name": "Dolliv"
+    },
+    {
+     "dex": 930,
+     "name": "Arboliva"
+    },
+    {
+     "dex": 931,
+     "name": "Squawkabilly"
+    },
+    {
+     "dex": 932,
+     "name": "Nacli"
+    },
+    {
+     "dex": 933,
+     "name": "Naclstack"
+    },
+    {
+     "dex": 934,
+     "name": "Garganacl"
+    },
+    {
+     "dex": 935,
+     "name": "Charcadet"
+    },
+    {
+     "dex": 936,
+     "name": "Armarouge"
+    },
+    {
+     "dex": 937,
+     "name": "Ceruledge"
+    },
+    {
+     "dex": 938,
+     "name": "Tadbulb"
+    },
+    {
+     "dex": 939,
+     "name": "Bellibolt"
+    },
+    {
+     "dex": 940,
+     "name": "Wattrel"
+    },
+    {
+     "dex": 941,
+     "name": "Kilowattrel"
+    },
+    {
+     "dex": 942,
+     "name": "Maschiff"
+    },
+    {
+     "dex": 943,
+     "name": "Mabosstiff"
+    },
+    {
+     "dex": 944,
+     "name": "Shroodle"
+    },
+    {
+     "dex": 945,
+     "name": "Grafaiai"
+    },
+    {
+     "dex": 946,
+     "name": "Bramblin"
+    },
+    {
+     "dex": 947,
+     "name": "Brambleghast"
+    },
+    {
+     "dex": 948,
+     "name": "Toedscool"
+    },
+    {
+     "dex": 949,
+     "name": "Toedscruel"
+    },
+    {
+     "dex": 950,
+     "name": "Klawf"
+    },
+    {
+     "dex": 951,
+     "name": "Capsakid"
+    },
+    {
+     "dex": 952,
+     "name": "Scovillain"
+    },
+    {
+     "dex": 953,
+     "name": "Rellor"
+    },
+    {
+     "dex": 954,
+     "name": "Rabsca"
+    },
+    {
+     "dex": 955,
+     "name": "Flittle"
+    },
+    {
+     "dex": 956,
+     "name": "Espathra"
+    },
+    {
+     "dex": 957,
+     "name": "Tinkatink"
+    },
+    {
+     "dex": 958,
+     "name": "Tinkatuff"
+    },
+    {
+     "dex": 959,
+     "name": "Tinkaton"
+    },
+    {
+     "dex": 960,
+     "name": "Wiglett"
+    },
+    {
+     "dex": 961,
+     "name": "Wugtrio"
+    },
+    {
+     "dex": 962,
+     "name": "Bombirdier"
+    },
+    {
+     "dex": 963,
+     "name": "Finizen"
+    },
+    {
+     "dex": 964,
+     "name": "Palafin"
+    },
+    {
+     "dex": 965,
+     "name": "Varoom"
+    },
+    {
+     "dex": 966,
+     "name": "Revavroom"
+    },
+    {
+     "dex": 967,
+     "name": "Cyclizar"
+    },
+    {
+     "dex": 968,
+     "name": "Orthworm"
+    },
+    {
+     "dex": 969,
+     "name": "Glimmet"
+    },
+    {
+     "dex": 970,
+     "name": "Glimmora"
+    },
+    {
+     "dex": 971,
+     "name": "Greavard"
+    },
+    {
+     "dex": 972,
+     "name": "Houndstone"
+    },
+    {
+     "dex": 973,
+     "name": "Flamigo"
+    },
+    {
+     "dex": 974,
+     "name": "Cetoddle"
+    },
+    {
+     "dex": 975,
+     "name": "Cetitan"
+    },
+    {
+     "dex": 976,
+     "name": "Veluza"
+    },
+    {
+     "dex": 977,
+     "name": "Dondozo"
+    },
+    {
+     "dex": 978,
+     "name": "Tatsugiri"
+    },
+    {
+     "dex": 979,
+     "name": "Annihilape"
+    },
+    {
+     "dex": 980,
+     "name": "Clodsire"
+    },
+    {
+     "dex": 981,
+     "name": "Farigiraf"
+    },
+    {
+     "dex": 982,
+     "name": "Dudunsparce"
+    },
+    {
+     "dex": 983,
+     "name": "Kingambit"
+    },
+    {
+     "dex": 984,
+     "name": "Great Tusk"
+    },
+    {
+     "dex": 985,
+     "name": "Scream Tail"
+    },
+    {
+     "dex": 986,
+     "name": "Brute Bonnet"
+    },
+    {
+     "dex": 987,
+     "name": "Flutter Mane"
+    },
+    {
+     "dex": 988,
+     "name": "Slither Wing"
+    },
+    {
+     "dex": 989,
+     "name": "Sandy Shocks"
+    },
+    {
+     "dex": 990,
+     "name": "Iron Treads"
+    },
+    {
+     "dex": 991,
+     "name": "Iron Bundle"
+    },
+    {
+     "dex": 992,
+     "name": "Iron Hands"
+    },
+    {
+     "dex": 993,
+     "name": "Iron Jugulis"
+    },
+    {
+     "dex": 994,
+     "name": "Iron Moth"
+    },
+    {
+     "dex": 995,
+     "name": "Iron Thorns"
+    },
+    {
+     "dex": 996,
+     "name": "Frigibax"
+    },
+    {
+     "dex": 997,
+     "name": "Arctibax"
+    },
+    {
+     "dex": 998,
+     "name": "Baxcalibur"
+    },
+    {
+     "dex": 999,
+     "name": "Gimmighoul"
+    },
+    {
+     "dex": 1000,
+     "name": "Gholdengo"
+    },
+    {
+     "dex": 1001,
+     "name": "Wo-Chien"
+    },
+    {
+     "dex": 1002,
+     "name": "Chien-Pao"
+    },
+    {
+     "dex": 1003,
+     "name": "Ting-Lu"
+    },
+    {
+     "dex": 1004,
+     "name": "Chi-Yu"
+    },
+    {
+     "dex": 1005,
+     "name": "Roaring Moon"
+    },
+    {
+     "dex": 1006,
+     "name": "Iron Valiant"
+    },
+    {
+     "dex": 1007,
+     "name": "Koraidon"
+    },
+    {
+     "dex": 1008,
+     "name": "Miraidon"
+    },
+    {
+     "dex": 1009,
+     "name": "Walking Wake"
+    },
+    {
+     "dex": 1010,
+     "name": "Iron Leaves"
     }
    ]

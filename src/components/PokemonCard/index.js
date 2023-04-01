@@ -40,7 +40,7 @@ const PokemonCard = ({cardData, cardImageLarge, cardSmall}) => {
     setModalVisible(true)
     if (cardData.supertype === "Pokémon") {
       const filteredAllPokemonName = allPokemonNameData.filter(item => item.dex === cardData.nationalPokedexNumbers[0]);
-     setFilteredPokemonName(filteredAllPokemonName[0].name)
+     setFilteredPokemonName(filteredAllPokemonName[0]?.name)
     }
   }
   
@@ -115,8 +115,8 @@ const PokemonCard = ({cardData, cardImageLarge, cardSmall}) => {
               />
             <View style={styles.cardaInfoContainer}>
               <CardaInfoData topLine={"Other"} bottomLine={filteredPokemonName} onPress={() => navigation.push("AllCardsWithSameNameScreen", {cardName: filteredPokemonName})} />
-              <CardaInfoData topLine={"Set name"} bottomLine={cardData.set.name} onPress={() => navigation.push("SetCardsScreen", {setData: cardData.set})} />
-              <CardaInfoData topLine={"artist"} bottomLine={cardData.artist} onPress={() => navigation.push("ArtistCardsScreen", {artistName: cardData.artist})} />
+              <CardaInfoData topLine={"Set name"} bottomLine={cardData?.set?.name} onPress={() => navigation.push("SetCardsScreen", {setData: cardData.set})} />
+              <CardaInfoData topLine={"artist"} bottomLine={cardData?.artist} onPress={() => navigation.push("ArtistCardsScreen", {artistName: cardData.artist})} />
               {cardData.supertype === "Pokémon" && filteredPokemonSubtypes().length > 0 &&
                 <CardaInfoData topLine={"Other"} bottomLine={filteredPokemonSubtypes()} onPress={() => {}} />
               }

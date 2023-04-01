@@ -23,7 +23,7 @@ const IndividualSetBox = ({setData}) => {
                 alt={setData.id}
                 style={styles.setImage}
             />       
-        <View style={{ flex: 1, marginLeft: 35 }}>
+        <View >
           <Text style={styles.setName}>{setData.name}</Text>
           <Text style={styles.setDate}>{formatDate(setData.releaseDate)}</Text>
         </View>
