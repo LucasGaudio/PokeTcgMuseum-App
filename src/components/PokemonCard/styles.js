@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 import { Colors } from "../../constants/"
 import { Dimensions } from 'react-native';
 
@@ -62,9 +62,45 @@ const styles = StyleSheet.create({
     },
     modalTopText: {
         color: Colors.black,
-    }
-    
-    
+    },
+    saveButton: {
+        position: 'absolute',
+        top: 20,
+        right: 20,
+        backgroundColor: Colors.primaryColor,
+        padding: 10,
+        borderRadius: 25,
+        zIndex: 1000,
+        shadowColor: Colors.black,
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
+    },
+    toast: {
+        position: 'absolute',
+        alignSelf: 'center',
+        bottom: '50%',
+        backgroundColor: '#333',
+        paddingHorizontal: 24,
+        paddingVertical: 12,
+        borderRadius: 12,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.2,
+        shadowRadius: 4,
+        elevation: 5
+      },
+      
+      toastText: {
+        fontSize: 16,
+        color: '#fff',
+        textAlign: 'center',
+        fontWeight: '500',
+      },
 })
 
 export default styles;

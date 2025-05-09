@@ -73,24 +73,24 @@ const SearchCardScreen = () => {
 
         {suggestions.length > 0 && (
             <View style={{ width: '90%' }}>
-          <FlatList
-            data={suggestions}
-            keyExtractor={(item) => item.name}
-            contentContainerStyle={{ marginBottom: 1 }}
-            renderItem={({ item }) => (
-              <TouchableOpacity onPress={() => handleSuggestionPress(item.name)}>
-                <View style={styles.suggestionContainer}>
-                  <Icon
-                    name="search1"
-                    size={16}
-                    // color={"rgba(255, 255, 255, 0.9)"}
-                    style={{ marginRight: 10, marginTop: 5 }}
-                  />
-                  <Text style={styles.suggestionText}>{item.name}</Text>
-                </View>
-              </TouchableOpacity>
-            )}
-          />
+              <FlatList
+                data={suggestions}
+                keyExtractor={(item) => item.name}
+                contentContainerStyle={{ marginBottom: 1 }}
+                renderItem={({ item }) => (
+                  <TouchableOpacity onPress={() => handleSuggestionPress(item.name)}>
+                    <View style={styles.suggestionContainer}>
+                      <Icon
+                        name="search1"
+                        size={16}
+                        // color={"rgba(255, 255, 255, 0.9)"}
+                        style={{ marginRight: 10, marginTop: 5 }}
+                      />
+                      <Text style={styles.suggestionText}>{item.name}</Text>
+                    </View>
+                  </TouchableOpacity>
+                )}
+              />
           </View>
         )}
       </View>

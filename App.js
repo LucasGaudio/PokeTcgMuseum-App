@@ -1,4 +1,3 @@
-
 import React from 'react';
 import {
   View, Text
@@ -25,7 +24,7 @@ import {useNavigation} from "@react-navigation/native"
 
 const Stack = createStackNavigator()
 
-const App = () => {
+const AppContent = () => {
   const Tab = createBottomTabNavigator()
 
   const HomeStack = () => {
@@ -257,6 +256,11 @@ const App = () => {
   );
 };
 
+const App = () => {
+  return (
+    <AppContent />
+  );
+};
 
 export default App;
 

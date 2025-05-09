@@ -24,16 +24,7 @@ const HomeScreen = () => {
     }, []);
 
     const handleSearchTextChange = (text) => {
-
         setSearchText(text);
-        // if (text === '') {
-        //   setSuggestions([]);
-        //   return;
-        // }
-        // const filteredSuggestions = selectedOptionJson.filter(
-        //   (item) => item.name.toLowerCase().startsWith(text.toLowerCase())
-        // );
-        // setSuggestions(filteredSuggestions);
     };
 
 	return (

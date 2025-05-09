@@ -71,7 +71,7 @@ export const getSet = setId => {
 			payload: null,
 		});
 		try {
-			pokemon.card.all({ q: `set.id:${setId}` }).then(result => {
+			pokemon.card.all({ q: `set.id:${setId}`, orderBy: "number" }).then(result => {
 				const resData = result;
 
 				dispatch({
