@@ -4,9 +4,9 @@ import {useNavigation} from "@react-navigation/native"
 import Icon from 'react-native-vector-icons/AntDesign';
 import styles from './styles';
 
-import allPokemonNameData from "../../assets/json/allPokemonNames.json";
-import allTrainers from "../../assets/json/allTrainers.json";
-import allEnergy from "../../assets/json/allEnergy.json";
+import pokemonNameData from "../../assets/json/pokemonNameData.json";
+import trainerData from "../../assets/json/trainerData.json";
+import energyData from "../../assets/json/energyData.json";
 
 import OptionTab from "../../components/OptionTab"
 
@@ -20,13 +20,12 @@ const SearchCardScreen = () => {
     const handleSearchTextChange = (text) => {
         let selectedOptionJson;
         if(selectedOption === 'Pokemon') {
-            selectedOptionJson = allPokemonNameData
+            selectedOptionJson = pokemonNameData
         } else if (selectedOption === 'Trainer') {
-            selectedOptionJson = allTrainers
+            selectedOptionJson = trainerData
         } else {
-            selectedOptionJson = allEnergy
+            selectedOptionJson = energyData
         }
-
 
         setSearchText(text);
         if (text === '') {

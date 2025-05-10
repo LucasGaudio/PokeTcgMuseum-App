@@ -3,7 +3,7 @@ import { View, Image, Text, TouchableOpacity, Modal, Animated, ActivityIndicator
 import pokemon from "pokemontcgsdk";
 import styles from "./styles"
 import { PanGestureHandler } from 'react-native-gesture-handler';
-import allPokemonNameData from "../../assets/json/allPokemonNames.json";
+import pokemonNameData from "../../assets/json/pokemonNameData.json";
 import {useNavigation} from "@react-navigation/native"
 import RNFS from 'react-native-fs';
 import { check, request, PERMISSIONS, RESULTS } from 'react-native-permissions';
@@ -112,7 +112,7 @@ const PokemonCard = ({cardData, cardImageLarge, cardSmall}) => {
   const handleOnPressCard = () => {
     setModalVisible(true)
     if (cardData.supertype === "Pokémon" && cardData.nationalPokedexNumbers && cardData.nationalPokedexNumbers.length > 0) {
-      const filteredAllPokemonName = allPokemonNameData.filter(item => item.dex === cardData.nationalPokedexNumbers[0]);
+      const filteredAllPokemonName = pokemonNameData.filter(item => item.dex === cardData.nationalPokedexNumbers[0]);
       setFilteredPokemonName(filteredAllPokemonName[0]?.name || "")
     } else {
       setFilteredPokemonName("")
