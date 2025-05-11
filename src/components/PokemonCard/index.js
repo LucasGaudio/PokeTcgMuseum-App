@@ -114,6 +114,10 @@ const PokemonCard = ({cardData, cardImageLarge, cardSmall}) => {
     if (cardData.supertype === "Pokémon" && cardData.nationalPokedexNumbers && cardData.nationalPokedexNumbers.length > 0) {
       const filteredAllPokemonName = pokemonNameData.filter(item => item.dex === cardData.nationalPokedexNumbers[0]);
       setFilteredPokemonName(filteredAllPokemonName[0]?.name || "")
+    } else if (cardData.supertype === "Trainer") {
+      setFilteredPokemonName(cardData.name || "")
+    } else if (cardData.supertype === "Energy") {
+      setFilteredPokemonName(cardData.name || "")
     } else {
       setFilteredPokemonName("")
     }
@@ -187,7 +191,7 @@ const PokemonCard = ({cardData, cardImageLarge, cardSmall}) => {
                 />
                 <View style={styles.cardaInfoContainer}>
                   <CardaInfoData
-                  topLine={"Other"}
+                  topLine={"Others"}
                   bottomLine={filteredPokemonName ? filteredPokemonName : "N/A"}
                   onPress={filteredPokemonName ? () => navigation.push("AllCardsWithSameNameScreen", {cardName: filteredPokemonName}) : undefined} />
                   <CardaInfoData 

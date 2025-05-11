@@ -23,8 +23,8 @@ const IndividualSetBox = ({setData}) => {
                 alt={setData.id}
                 style={styles.setImage}
             />       
-        <View >
-          <Text style={styles.setName}>{setData.name}</Text>
+        <View style={styles.textView}>
+          <Text style={styles.setName} numberOfLines={2}>{setData.name}</Text>
           <Text style={styles.setDate}>{formatDate(setData.releaseDate)}</Text>
         </View>
         <View>

@@ -40,6 +40,10 @@ const styles = StyleSheet.create({
     },
     setDate: {
         color: Colors.black,
+    },
+    textView: {
+        flex: 1,
+        marginHorizontal: 15
     }
 })
 
